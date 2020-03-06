@@ -1,4 +1,4 @@
-# CSRgen
+# CERTgen
 Scripts to generate TLS certificates
 
 ## Updates required:
