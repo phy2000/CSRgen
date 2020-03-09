@@ -21,10 +21,12 @@ You can verify the csr file with the following command
 `openssl req -in <HOST>.csr -noout -text`
 
 ## Generate Keystores
-You will need the Trust chain in individual Base64 Encoded (.pem)  files for the next step
 
-Edit `generateKeystores.sh`
-Add multiple lines to import the trust chain into the truststore.jks 
+You will need the Trust chain in individual Base64 Encoded `(pem)` files for the next step.
 
-Put the signed `cert.pem` files in the folder 
-run  `generateKeystores.sh`
+* Edit `generateKeystores.sh`
+
+  * Add multiple lines to import the trust chain into the truststore.jks 
+
+* Put the signed `.pem` files in the folder
+* run  `generateKeystores.sh`
