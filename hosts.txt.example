@@ -1,0 +1,7 @@
+app1.paul.bh.ps.confluent.io~DNS:app1.paul.bh.ps.confluent.io,DNS:app1
+app2.paul.bh.ps.confluent.io~DNS:app2.paul.bh.ps.confluent.io,DNS:app2
+ccc.paul.bh.ps.confluent.io~DNS:ccc.paul.bh.ps.confluent.io,DNS:ccc
+kfk1.paul.bh.ps.confluent.io~DNS:kfk1.paul.bh.ps.confluent.io,DNS:kfk1
+kfk2.paul.bh.ps.confluent.io~DNS:kfk2.paul.bh.ps.confluent.io,DNS:kfk2
+kfk3.paul.bh.ps.confluent.io~DNS:kfk3.paul.bh.ps.confluent.io,DNS:kfk3
+ksql1.paul.bh.ps.confluent.io~DNS:ksql1.paul.bh.ps.confluent.io,DNS:ksql1

@@ -12,6 +12,8 @@ do
 	echo "short name:                     $SHORT_NAME"
 	CN_NAME_STRING=`echo $line | cut -s -d "~" -f1`
 	echo "cn Name:                         $CN_NAME_STRING"
+	SUBJECT=$(<subject.txt)/CN=${CN_NAME_STRING}
+	echo "Subj: $SUBJECT"
         
 	DNS_NAMES_STRING=`echo $line | cut -s -d "~" -f2`
 	echo "Before if:                       $DNS_NAMES_STRING"
@@ -28,8 +30,7 @@ do
 	## Key first
 	openssl genrsa -aes128 -passout file:passphrase.txt -out $CN_NAME_STRING.key 4096
 	#Then CSR
-	#openssl req -new -sha256 -key $line.key -passin file:passphrase.txt -out $line.csr -subj "/C=US/ST=Arizona/L=Fountain Hills/O=Griz/OU=Hadoop/CN=$line"
-	## you have to add Subj Alt Name (SAN) with the FQDN due to some shit going on in the new versions of Java and Browser
-	openssl req -new -sha256 -key $CN_NAME_STRING.key -passin file:passphrase.txt -out $CN_NAME_STRING.csr -subj "/C=CA/ST=Alberta/L=Calgary/O=IT/OU=Kafka/CN=$CN_NAME_STRING" -reqexts SAN -config <(cat $CSRCONF_FILE <(printf "\n[SAN]\nsubjectAltName=$DNS_NAMES_STRING"))
+	## you have to add Subj Alt Name (SAN) with the FQDN due to something going on in the new versions of Java and Browser
+	openssl req -new -sha256 -key $CN_NAME_STRING.key -passin file:passphrase.txt -out $CN_NAME_STRING.csr -subj "$SUBJECT" -reqexts SAN -config <(cat $CSRCONF_FILE <(printf "\n[SAN]\nsubjectAltName=$DNS_NAMES_STRING"))
 done
 
